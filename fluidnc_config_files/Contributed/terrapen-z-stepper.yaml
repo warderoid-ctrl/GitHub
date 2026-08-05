@@ -80,27 +80,41 @@ axes:
     motor1:
       null_motor:
   z:
-    steps_per_mm: 80
+    steps_per_mm: 70
     max_rate_mm_per_min: 1000
-    acceleration_mm_per_sec2: 750
+    acceleration_mm_per_sec2: 500
     max_travel_mm: 24
     soft_limits: false
+    homing:
+      cycle: 0
+      mpos_mm: 24
+      positive_direction: true
+      settle_ms: 250
+      seek_mm_per_min: 300
+      feed_mm_per_min: 200
+      seek_scaler: 1.1
+      feed_scaler: 1.5
+
     motor0:
-      limit_all_pin: NO_PIN
+      limit_pos_pin: gpio.13:low:pu
       hard_limits: false
+      pulloff_mm: 2
       tmc_2130:
         direction_pin: gpio.21
         step_pin: gpio.22
         cs_pin: gpio.4
         r_sense_ohms: 0.11
         run_amps: 0.5
-        hold_amps: 0.125
+        hold_amps: 0.2
         microsteps: 16
-        stallguard: 13
+        stallguard: 43
         stallguard_debug: false
+        toff_disable: 0
+        toff_stealthchop: 5
         run_mode: StealthChop
         homing_mode: StealthChop
         use_enable: false
+        spi_index: -1
     motor1:
       null_motor:
 
@@ -130,7 +144,7 @@ macros:
   macro3:
 
 start:
-  must_home: true
+  must_home: false
   check_limits: true
   deactivate_parking: false
 
