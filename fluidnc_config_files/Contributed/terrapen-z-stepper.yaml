@@ -81,8 +81,8 @@ axes:
       null_motor:
   z:
     steps_per_mm: 70
-    max_rate_mm_per_min: 1000
-    acceleration_mm_per_sec2: 500
+    max_rate_mm_per_min: 6000
+    acceleration_mm_per_sec2: 1000
     max_travel_mm: 24
     soft_limits: false
     homing:
