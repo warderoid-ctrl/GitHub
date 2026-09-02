@@ -1,0 +1,3 @@
+# Nested repositories - these have their own git remotes and must not be
+# tracked by this parent repo.
+terraPenDocumentation/
