@@ -1,0 +1,15 @@
+# The Meshroom install (~20 GB) and its download — recreate with scripts/setup.ps1
+tools/
+
+# Intermediate reconstruction cache — huge and fully regenerable
+work/
+
+# Your photos and results: tracked folders, untracked contents
+input/*
+!input/.gitkeep
+!input/README.md
+output/*
+!output/.gitkeep
+
+__pycache__/
+*.pyc

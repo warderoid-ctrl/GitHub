@@ -1,0 +1,20 @@
+{
+  // tools/ is a ~20 GB binary install and work/ churns constantly during a scan.
+  // Watching or indexing either will make the editor crawl.
+  "files.watcherExclude": {
+    "**/tools/**": true,
+    "**/work/**": true,
+    "**/output/**": true
+  },
+  "search.exclude": {
+    "**/tools/**": true,
+    "**/work/**": true,
+    "**/input/**": true,
+    "**/output/**": true
+  },
+  "files.exclude": {
+    "**/__pycache__": true
+  },
+  "python.analysis.extraPaths": ["./scripts"],
+  "terminal.integrated.defaultProfile.windows": "PowerShell"
+}

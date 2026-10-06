@@ -1,0 +1,102 @@
+site_name: terraPen Documentation
+site_description: >-
+  Documentation for the open source terraPen plotter
+docs_dir: docs
+site_dir: public
+site_url: http://localhost:8000
+theme: 
+  name: material
+  logo: img/TP-Logo-web-ad.svg
+  favicon: img/favicon.ico
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: lime
+      accent: green
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: lime
+      accent: green
+  font:
+    # text: Open Sans
+    text: Jura
+    code: Roboto Mono
+  language: en
+  features:
+    # - announce.dismiss
+    - content.code.copy
+    - content.code.annotate
+    # - content.tabs.link
+    - naviagation.sections
+    - navigation.tracking
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.top
+    - search.suggest
+    - search.highlight
+    - toc.follow
+use_directory_urls: true
+plugins:
+  - tags
+  - social
+  - privacy
+  - minify:
+      minify_html: true
+  - search:
+      pipeline:
+        - stemmer
+        - stopWordFilter
+        - trimmer
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - admonition
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - tables
+copyright: Copyright © 2024 The Work is the work
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/fEXrmUm5nR
+    - icon: fontawesome/brands/html5
+      link: https://www.terrapen.xyz/
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/theworkisthe.work/
+    - icon: fontawesome/brands/github
+      link: https://github.com/theworkisthework
+nav:
+  - Home: index.md
+  - What's in the box: WhatsInTheBox.md 
+  - First time use: 1sttimeuse.md
+  - terraPen web UI: terraPenWebUI.md 
+  - First Plot: 1stPlot.md
+  - Uploading Files: uploadingFiles.md
+  - Plotting: plotting.md
+  - Moving The Pen Carriage: movingThePenCarriage.md
+  - Starting a plot: startingAplot.md
+  - Connect to a personal network: connectToPersonalNetwork.md
+  - Re-starting terraPen: restartTerraPen.md 
+  - Lightburn Profiles and settings: LightburnProfilesAndSettings.md
+  - Connect to terraPen via USB-C: ConnectTethered.md
+  - YAML Configuration Settings: YAMLConfigurationSettings.md
+  - FAQ (Frequently Asked Questions): FAQ.md

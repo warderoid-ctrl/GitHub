@@ -1,0 +1,12 @@
+[filtering]
+checkextern=1
+ignore=
+  localhost:8000
+  public/404.html$
+  public/sitemap.xml$
+  sitemap.xml
+  .js$
+  .php$
+[checking]
+robotstxt=0
+localwebroot=./

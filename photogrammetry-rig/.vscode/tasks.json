@@ -1,0 +1,79 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Scan: all pending objects",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/scan.py"],
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Scan: pick one object",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/scan.py", "${input:objectName}", "-q", "${input:quality}"],
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Scan: redo one object (force)",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/scan.py", "${input:objectName}", "-q", "${input:quality}", "--force"],
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "List objects",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/scan.py", "--list"],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Doctor: check install",
+      "type": "shell",
+      "command": "python",
+      "args": ["scripts/scan.py", "--doctor"],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup: install Meshroom",
+      "type": "shell",
+      "command": "powershell",
+      "args": ["-ExecutionPolicy", "Bypass", "-File", "scripts/setup.ps1"],
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Clean: delete work cache",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile", "-Command",
+        "Get-ChildItem -Path work -Directory -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force; Write-Host 'work/ cleared'"
+      ],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "objectName",
+      "type": "promptString",
+      "description": "Object folder name under input/"
+    },
+    {
+      "id": "quality",
+      "type": "pickString",
+      "description": "Quality preset",
+      "options": ["draft", "normal", "high", "ultra"],
+      "default": "normal"
+    }
+  ]
+}
